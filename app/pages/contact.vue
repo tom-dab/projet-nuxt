@@ -4,17 +4,17 @@
             label: "Nom",
             type: "text",
             placeholder: "Jonkler Skibidi",
-            model: "name",
+            required: true
         },
         {
             label: "Email",
             type: "email",
             placeholder: "jonkler.skibidi@example.com",
-            model: "email",
+            required: true,
         },
     ];
 </script>
 
 <template>
-    <span>Contact</span>
-</template>
+    <FormComponent :formFields="formFields" />
+</template> 

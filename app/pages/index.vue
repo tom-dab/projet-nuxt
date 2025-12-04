@@ -16,7 +16,7 @@ const tags = [
 </script>
 
 <template>
-    <span >Index</span>
+    <span>Index</span>
     <div >
         <TagComponent 
             v-for="(tag, i) in tags" 
