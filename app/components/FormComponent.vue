@@ -18,6 +18,7 @@ const props = defineProps<{
 }>();
 
 const formData = ref<string[]>(props.formFields.map(() => ""));
+const showSuccess = ref(false);
 
 const templateParams = computed(() => ({
     name: formData.value[0],
@@ -32,9 +33,10 @@ async function submit() {
         publicKey
     );
     if (res.status === 200) {
-      } else {
-      }
+        showSuccess.value = true;   
+        setTimeout(() => showSuccess.value = false, 3000);
     }
+}
 </script>
 
 <template>
@@ -51,4 +53,7 @@ async function submit() {
         </label>
         <button type="submit" @click="submit">Envoyer</button>
     </form>
+    <div v-if="showSuccess" class="popup-success">
+        Message envoyé avec succès !
+    </div>
 </template>
